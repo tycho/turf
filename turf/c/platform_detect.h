@@ -57,7 +57,11 @@
     #if defined(__x86_64__)
         // x64
         #define TURF_CPU_X64 1
-        #define TURF_PTR_SIZE 8
+        #if defined(__ILP32__)
+            #define TURF_PTR_SIZE 4
+        #else
+            #define TURF_PTR_SIZE 8
+        #endif
     #elif defined(__i386__)
         // x86
         #define TURF_CPU_X86 1
